@@ -9,17 +9,18 @@ import { SiteHeader } from "../components/site-header";
 import "./globals.css";
 
 const bricolage = Bricolage_Grotesque({
-  variable: "--font-display",
+  variable: "--font-bricolage",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-body",
+  variable: "--font-jakarta",
   subsets: ["latin"],
 });
 
 const spaceMono = Space_Mono({
-  variable: "--font-mono",
+  variable: "--font-space-mono",
   subsets: ["latin"],
   weight: ["400", "700"],
 });
@@ -62,7 +63,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${bricolage.variable} ${jakarta.variable} ${spaceMono.variable}`}>
+      <body
+        className={`${bricolage.variable} ${jakarta.variable} ${spaceMono.variable}`}
+      >
         <SiteHeader />
         {children}
         <SiteFooter />
