@@ -83,7 +83,7 @@ export default function Home() {
         <div
           className={cn(
             riseIn,
-            "relative isolate min-h-[38rem] self-stretch rounded-[10%_50%_8rem_8rem] bg-rose [animation-delay:120ms]",
+            "relative isolate max-h-[38rem] self-stretch rounded-[10%_50%_8rem_8rem] bg-rose [animation-delay:120ms]",
             "before:absolute before:left-[-4rem] before:top-[28%] before:-z-10 before:size-[20rem] before:rounded-full before:bg-gold before:content-['']",
             "after:absolute after:inset-0 after:-z-10 after:bg-[radial-gradient(rgba(19,36,29,0.25)_1px,transparent_1px)] after:bg-[length:12px_12px] after:opacity-40 after:content-['']",
 
@@ -100,14 +100,14 @@ export default function Home() {
           <Image
             className="
         !left-[40%] !h-full !w-[120%] max-w-none !-translate-x-1/2 object-cover
-        max-md:!left-[55%] max-md:!w-[120%]
+        max-md:!left-[75%] max-md:!w-[120%]
         max-[560px]:!left-[60%] max-[560px]:!w-[140%]
       "
             src="/images/robert/hero.png"
             alt="Robert Labayen in a rose blazer, looking ahead"
             fill
             priority
-            sizes="(max-width: 768px) 100vw, 48vw"
+            sizes="100vw"
           />
         </div>
       </section>
@@ -210,12 +210,10 @@ export default function Home() {
                 {workshop.number}
               </span>
               <div>
-                <h3 className="mb-4 max-w-[8ch] text-[clamp(2.1rem,3.4vw,3.8rem)]">
+                <h3 className="mb-4  text-[clamp(2.1rem,3.4vw,3.8rem)]">
                   {workshop.title}
                 </h3>
-                <p className="m-0 max-w-[18rem] text-[0.86rem]">
-                  {workshop.subtitle}
-                </p>
+                <p className="m-0  text-[0.86rem]">{workshop.subtitle}</p>
               </div>
               <span className="absolute bottom-6 right-6 flex size-10 items-center justify-center rounded-full border border-current font-display text-[1.4rem] transition-transform duration-200 group-hover:rotate-90">
                 +
@@ -333,7 +331,7 @@ export default function Home() {
       <section
         className={cn(
           shell,
-          " grid min-h-[44rem] max-w-[calc(1500px-2.5rem)] grid-cols-[1fr_0.9fr] overflow-hidden bg-coral p-0 max-[820px]:grid-cols-1 max-[560px]:mx-4 max-[560px]:w-auto",
+          " grid min-h-[44rem] max-w-max grid-cols-[1fr_0.9fr] overflow-hidden bg-coral p-0 max-[820px]:grid-cols-1 max-[560px]:mx-4 max-[560px]:w-auto",
         )}
       >
         <div className="relative z-[2] self-center p-[clamp(2rem,6vw,6rem)]">
@@ -352,7 +350,7 @@ export default function Home() {
             Start a conversation
           </Link>
         </div>
-        <div className="max-md:hidden relative isolate min-h-[44rem] overflow-hidden  before:absolute before:right-[1 rem] before:top-20 before:-z-10 before:size-[20rem] before:rounded-full before:bg-orange-300 before:content-[''] max-[820px]:min-h-[35rem] max-[560px]:min-h-[31rem]">
+        <div className="max-[820px]:hidden relative isolate min-h-[44rem] overflow-hidden  before:absolute before:right-[1 rem] before:top-20 before:-z-10 before:size-[20rem] before:rounded-full before:bg-orange-300 before:content-[''] max-[820px]:min-h-[35rem] max-[560px]:min-h-[31rem]">
           <span className="absolute right-[8rem] top-16 z-0 size-48 rounded-full bg-lime-200" />
 
           <span className="absolute right-24 top-[8.7rem] z-[1] size-[2.6rem] rounded-full border border-ink/35" />

@@ -48,9 +48,9 @@ export default function AboutPage() {
           "grid min-h-[calc(100svh-var(--header-height))] grid-cols-[minmax(0,1.05fr)_minmax(24rem,0.85fr)] items-center gap-[clamp(3rem,7vw,8rem)] py-[clamp(4rem,7vw,7rem)] max-[820px]:min-h-0 max-[820px]:grid-cols-1",
         )}
       >
-        <div className={riseIn}>
+        <div className={cn(riseIn, "relative z-10")}>
           <p className={eyebrow}>About Robert</p>
-          <h1 className="mb-10 text-[clamp(4rem,8vw,9rem)] leading-[0.88] tracking-[-0.075em]">
+          <h1 className="mb-[2.3rem] max-w-[9ch] leading-[0.83] tracking-[-0.08em] max-[1100px]:text-[clamp(4rem,8vw,7rem)] max-md:text-[clamp(4.2rem,16vw,7rem)] max-[560px]:text-[clamp(3.9rem,18vw,5.5rem)]">
             Creativity is a way of paying attention.
           </h1>
           <p className="max-w-[39rem] text-[clamp(1rem,1.4vw,1.25rem)]">
@@ -61,21 +61,30 @@ export default function AboutPage() {
         </div>
         <div
           className={cn(
-            imageStage,
             riseIn,
-            "min-h-[24rem] rounded-full bg-rose [animation-delay:120ms] max-[820px]:min-h-[48rem] max-[560px]:min-h-[34rem] ",
+            "relative isolate max-h-[38rem] self-stretch [animation-delay:120ms]",
+            "before:absolute before:left-[-4rem] before:top-[8%] before:-z-10 before:size-[35rem] before:rounded-full before:bg-rose-200 before:content-['']",
+            "after:absolute after:inset-0 after:-z-10  after:bg-[length:12px_12px] after:opacity-40 after:content-['']",
+
+            // md and below
+            "max-md:absolute max-md:inset-0 max-md:z-0 max-md:min-h-0 max-md:rounded-none",
+            "max-md:[mask-image:linear-gradient(to_bottom,black_65%,transparent_100%)]",
+            "max-md:[-webkit-mask-image:linear-gradient(to_bottom,black_65%,transparent_100%)]",
           )}
         >
-          <span className="absolute right-[4rem] top-16 z-0 size-48 rounded-full bg-blue-200" />
-
-          <span className="absolute right-24 top-[8.7rem] z-[1] size-[2.6rem] rounded-full border border-ink/35" />
-
+          <span className="absolute right-[8rem] top-16 z-0 size-48 rounded-full bg-violet-200" />
+          .
           <Image
+            className="
+                       !left-[40%] !h-full !w-[120%] max-w-none !-translate-x-1/2 object-cover
+                       max-md:!left-[75%] max-md:!w-[120%]
+                       max-[560px]:!left-[60%] max-[560px]:!w-[140%]
+                     "
             src="/images/robert/portrait-white.png"
-            alt="Robert Labayen in a light blazer"
+            alt="Robert Labayen in a rose blazer, looking ahead"
             fill
             priority
-            sizes="(max-width: 20px) 100vw, 50vw"
+            sizes="100vw"
           />
         </div>
       </section>
@@ -87,7 +96,7 @@ export default function AboutPage() {
             Make the idea clear. Make the work matter. Bring people with you.
           </h2>
           <div className="pt-4 text-[1.05rem]">
-            <p className="mb-[1.7rem]">
+            <p className="mb-[1rem]">
               Robert has established himself in the Philippine advertising and
               creative industry by working where vision meets execution: shaping
               ideas, leading creative teams, and turning communication into
@@ -139,7 +148,7 @@ export default function AboutPage() {
       <section
         className={cn(
           shell,
-          "grid min-h-[48rem] max-w-[calc(1500px-2.5rem)] grid-cols-[0.9fr_1fr] bg-gold p-0 max-[820px]:grid-cols-1 max-[560px]:mx-4 max-[560px]:w-auto",
+          "grid min-h-[48rem] max-w-max grid-cols-[0.9fr_1fr] bg-gold p-0 max-[820px]:grid-cols-1 max-[560px]:mx-4 max-[560px]:w-auto",
         )}
       >
         <div className="self-center p-[clamp(2rem,6vw,6rem)]">

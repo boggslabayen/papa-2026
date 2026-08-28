@@ -26,24 +26,43 @@ export default function ContactPage() {
           "grid min-h-[calc(100svh-var(--header-height))] grid-cols-[1.06fr_0.8fr] items-center gap-[clamp(3rem,7vw,8rem)] py-[clamp(4rem,7vw,7rem)] max-[820px]:min-h-0 max-[820px]:grid-cols-1",
         )}
       >
-        <div className={riseIn}>
+        <div className={cn(riseIn, "relative z-10")}>
           <p className={eyebrow}>Book Robert</p>
-          <h1 className="mb-10 text-[clamp(4rem,8vw,9rem)] leading-[0.88] tracking-[-0.075em]">
+          <h1 className="mb-[2.3rem] max-w-[9ch] leading-[0.83] tracking-[-0.08em] max-[1100px]:text-[clamp(4rem,8vw,7rem)] max-md:text-[clamp(4.2rem,16vw,7rem)] max-[560px]:text-[clamp(3.9rem,18vw,5.5rem)]">
             Tell us about the room you want to move.
           </h1>
           <p className="max-w-[39rem] text-[clamp(1rem,1.4vw,1.25rem)]">
-            Share the context, the people, and the change you would love to create.
-            We will help shape an engagement that fits.
+            Share the context, the people, and the change you would love to
+            create. We will help shape an engagement that fits.
           </p>
         </div>
         <div
           className={cn(
-            imageStage,
             riseIn,
-            "min-h-[43rem] rounded-[50%_50%_2rem_2rem] bg-gold [animation-delay:120ms] max-[820px]:min-h-[48rem] max-[560px]:min-h-[34rem]",
+            "relative isolate max-h-[38rem] self-stretch [animation-delay:120ms]",
+            "before:absolute before:left-[-4rem] before:top-[28%] before:-z-10 before:size-[20rem] before:rounded-full before:bg-amber-500 before:content-['']",
+            "after:absolute after:inset-0 after:-z-10 after:bg-[radial-gradient(rgba(19,36,29,0.25)_1px,transparent_1px)] after:bg-[length:12px_12px] after:opacity-40 after:content-['']",
+
+            // md and below
+            "max-md:absolute max-md:inset-0 max-md:z-0 max-md:min-h-0 max-md:rounded-none",
+            "max-md:[mask-image:linear-gradient(to_bottom,black_65%,transparent_100%)]",
+            "max-md:[-webkit-mask-image:linear-gradient(to_bottom,black_65%,transparent_100%)]",
           )}
         >
-          <Image className={stageImage} src="/images/robert/welcoming-white.png" alt="Robert Labayen welcoming an audience" fill priority sizes="(max-width: 820px) 100vw, 42vw" />
+          <span className="absolute right-[8rem] top-16 z-0 size-48 rounded-full bg-violet-200" />
+          .
+          <Image
+            className="
+                    !left-[40%] !h-full !w-[120%] max-w-sm md:max-w-lg !-translate-x-1/2 object-cover
+                    max-md:!left-[75%] max-md:!w-[120%]
+                    max-[560px]:!left-[60%] max-[560px]:!w-[140%]
+                  "
+            src="/images/robert/welcoming-white.png"
+            alt="Robert Labayen in a rose blazer, looking ahead"
+            fill
+            priority
+            sizes="100vw"
+          />
         </div>
       </section>
 
@@ -64,7 +83,10 @@ export default function ContactPage() {
               "The date, location, and available time",
               "What success should feel like afterward",
             ].map((item) => (
-              <li className="border-t border-ink/20 py-4 text-[0.9rem] last:border-b" key={item}>
+              <li
+                className="border-t border-ink/20 py-4 text-[0.9rem] last:border-b"
+                key={item}
+              >
                 {item}
               </li>
             ))}

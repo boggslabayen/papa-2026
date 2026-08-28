@@ -78,7 +78,7 @@
   }
 
   h2 {
-    font-size: clamp(2.8rem, 5.8vw, 6.2rem);
+    font-size: clamp(2.8rem, 5vw, 6.2rem);
   }
 
   :focus-visible {
