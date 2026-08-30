@@ -2,9 +2,8 @@
 
 import type { FormEvent } from "react";
 import { useState } from "react";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
-import { getFirestoreDb } from "../lib/firebase";
 import { button, buttonDark, cn } from "../lib/styles";
+import { createBookingInquiry } from "../lib/firebase/booking";
 
 export function BookingForm() {
   const [status, setStatus] = useState<
@@ -17,13 +16,14 @@ export function BookingForm() {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
     const formElement = event.currentTarget;
     const form = new FormData(formElement);
 
     setStatus("submitting");
 
     try {
-      await addDoc(collection(getFirestoreDb(), "bookingInquiries"), {
+      await createBookingInquiry({
         name: String(form.get("name") ?? "").trim(),
         organization: String(form.get("organization") ?? "").trim(),
         email: String(form.get("email") ?? "").trim(),
@@ -31,8 +31,6 @@ export function BookingForm() {
         audienceSize: String(form.get("audienceSize") ?? "").trim(),
         preferredDate: String(form.get("preferredDate") ?? ""),
         message: String(form.get("message") ?? "").trim(),
-        status: "new",
-        createdAt: serverTimestamp(),
       });
 
       formElement.reset();
