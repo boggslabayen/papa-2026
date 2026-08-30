@@ -2,8 +2,8 @@
 
 import type { FormEvent } from "react";
 import { useState } from "react";
-import { button, buttonDark, cn } from "../lib/styles";
-import { createBookingInquiry } from "../lib/firebase/booking";
+import { button, buttonDark, cn } from "../../../lib/styles";
+import { createBookingInquiry } from "@/lib/firebase/booking";
 
 export function BookingForm() {
   const [status, setStatus] = useState<

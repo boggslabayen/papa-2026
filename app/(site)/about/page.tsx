@@ -12,7 +12,7 @@ import {
   sectionPad,
   shell,
   stageImage,
-} from "../../lib/styles";
+} from "@/lib/styles";
 
 export const metadata: Metadata = {
   title: "About",

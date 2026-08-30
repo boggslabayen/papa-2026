@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { journalPosts } from "../../lib/site-data";
+import { journalPosts } from "@/lib/site-data";
 import {
   button,
   buttonDark,
@@ -14,7 +14,7 @@ import {
   shell,
   stageImage,
   textLink,
-} from "../../lib/styles";
+} from "@/lib/styles";
 
 export const metadata: Metadata = {
   title: "Journal",

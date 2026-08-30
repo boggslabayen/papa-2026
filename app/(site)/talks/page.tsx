@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { workshops, type Workshop } from "../../lib/site-data";
+import { workshops, type Workshop } from "@/lib/site-data";
 import {
   button,
   buttonDark,
@@ -17,7 +17,7 @@ import {
   stageImage,
   textLink,
   textLinkPlus,
-} from "../../lib/styles";
+} from "@/lib/styles";
 
 export const metadata: Metadata = {
   title: "Talks & Workshops",

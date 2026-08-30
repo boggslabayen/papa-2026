@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { button, buttonSmall, cn } from "../lib/styles";
+import { button, buttonSmall, cn } from "../../lib/styles";
 
 const navItems = [
   { href: "/about", label: "About" },

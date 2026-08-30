@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { BookingForm } from "../../components/booking-form";
+import { BookingForm } from "@/components/ui/site/booking-form";
 import {
   cn,
   eyebrow,
@@ -9,7 +9,7 @@ import {
   sectionPad,
   shell,
   stageImage,
-} from "../../lib/styles";
+} from "@/lib/styles";
 
 export const metadata: Metadata = {
   title: "Book Robert",

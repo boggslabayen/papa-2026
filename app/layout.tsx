@@ -4,8 +4,6 @@ import {
   Plus_Jakarta_Sans,
   Space_Mono,
 } from "next/font/google";
-import { SiteFooter } from "../components/site-footer";
-import { SiteHeader } from "../components/site-header";
 import "./globals.css";
 
 const bricolage = Bricolage_Grotesque({
@@ -66,9 +64,7 @@ export default function RootLayout({
       <body
         className={`${bricolage.variable} ${jakarta.variable} ${spaceMono.variable}`}
       >
-        <SiteHeader />
         {children}
-        <SiteFooter />
       </body>
     </html>
   );
