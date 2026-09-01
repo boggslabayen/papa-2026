@@ -8,11 +8,11 @@ export default function HeaderDashboard() {
       <div className="flex items-center justify-between">
         <Link href="/">
           <Image
-            src="/images/hw_logo.png"
+            src="/og.png"
             alt="High Wire Logo"
             width={50}
             height={50}
-            className="inline-block mr-2"
+            className="w-24 h-auto"
           />
         </Link>
         <nav className="flex gap-6">
