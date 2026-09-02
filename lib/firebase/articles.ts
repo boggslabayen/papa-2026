@@ -17,7 +17,7 @@ import {
 import { deleteImageByUrl } from "./uploadImage";
 import { db } from "./firestore";
 
-type ArticleRecord = Article & { id: string };
+export type ArticleRecord = Article & { id: string };
 type ArticleFormData = Pick<
   Article,
   "title" | "slug" | "content" | "author" | "category" | "status"

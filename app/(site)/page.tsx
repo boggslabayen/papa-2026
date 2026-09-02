@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { journalPosts, workshops, type Workshop } from "@/lib/site-data";
+import { workshops, type Workshop } from "@/lib/site-data";
+import { formatJournalDate, getPublishedJournalArticles } from "@/lib/journal";
 import {
   button,
   buttonDark,
@@ -25,14 +26,6 @@ export const metadata: Metadata = {
     "Meet Robert Labayen, a Philippine creative leader, artist, and speaker helping teams create, communicate, and lead with meaning.",
 };
 
-const outcomes = [
-  "Braver creative thinking",
-  "Clearer communication",
-  "More meaningful leadership",
-  "Stronger team culture",
-  "Ideas people remember",
-];
-
 const toneClasses: Record<Workshop["tone"], string> = {
   coral: "bg-coral",
   lime: "bg-lime",
@@ -42,7 +35,11 @@ const toneClasses: Record<Workshop["tone"], string> = {
   cream: "bg-paper",
 };
 
-export default function Home() {
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
+  const journalPosts = (await getPublishedJournalArticles()).slice(0, 3);
+
   return (
     <main>
       {/* Hero Section */}
@@ -274,7 +271,8 @@ export default function Home() {
 
       {/* Journal Section */}
 
-      {/* <section className={cn(sectionPad, "bg-forest text-canvas")}>
+      {journalPosts.length > 0 && (
+        <section className={cn(sectionPad, "bg-forest text-canvas")}>
         <div
           className={cn(
             shell,
@@ -310,7 +308,7 @@ export default function Home() {
             >
               <div className={journalMeta}>
                 <span>{post.category}</span>
-                <span>{post.date}</span>
+                <span>{formatJournalDate(post.publishedAt)}</span>
               </div>
               <h3 className="mb-[1.4rem] mt-20 text-[clamp(2rem,3.2vw,3.7rem)]">
                 <Link href={`/journal/${post.slug}`}>{post.title}</Link>
@@ -325,7 +323,8 @@ export default function Home() {
             </article>
           ))}
         </div>
-      </section> */}
+        </section>
+      )}
 
       {/* Bring Robert into the Room Section */}
       <section

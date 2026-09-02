@@ -4,7 +4,7 @@ import { button, buttonSmall, cn } from "../../lib/styles";
 const navItems = [
   { href: "/about", label: "About" },
   { href: "/talks", label: "Talks" },
-  // { href: "/journal", label: "Journal" },
+  { href: "/journal", label: "Journal" },
 ];
 
 export function SiteHeader() {
