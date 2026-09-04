@@ -83,6 +83,18 @@ export const workshops: Workshop[] = [
     format: "Keynote, 1-hour talk, or communications workshop",
     tone: "cream",
   },
+  {
+    number: "07",
+    slug: "the-gamma-mind",
+    title: "The Gamma Mind",
+    subtitle: "The joy of discovering knowledge, ideas, and solutions",
+    summary:
+      "A liberating session about the brain's aha moments and how to create the conditions for better ideas, clearer learning, and fresh problem solving.",
+    audience: "Teams, students, leaders, and curious minds ready to break mental locks",
+    outcomes: ["More creative breakthroughs", "Freer thinking", "Sharper problem solving"],
+    format: "Keynote, 1-hour talk, or interactive workshop",
+    tone: "rose",
+  },
 ];
 
 export type JournalPost = {

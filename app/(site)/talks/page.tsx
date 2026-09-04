@@ -46,12 +46,15 @@ export default function TalksPage() {
         <div className={cn(riseIn, "relative z-10")}>
           <p className={eyebrow}>Talks + workshops</p>
           <h1 className="mb-[2.3rem] max-w-[9ch] leading-[0.83] tracking-[-0.08em] max-[1100px]:text-[clamp(4rem,8vw,7rem)] max-md:text-[clamp(4.2rem,16vw,7rem)] max-[560px]:text-[clamp(3.9rem,18vw,5.5rem)]">
-            A good room leaves with more than applause.
+            The tree is in the seed.
           </h1>
           <p className="max-w-[39rem] text-[clamp(1rem,1.4vw,1.25rem)]">
-            Robert&apos;s sessions are designed to change the conversation after
-            the conversation: practical, energizing experiences shaped around
-            your people.
+            Many people have great potential. They need a teacher, colleague, or
+            peer to join them in a journey if discovery.
+            <br />
+            <br />
+            The talks and workshops or Robert Labayen are fun, collaborative
+            ways to help bring out fresh ideas from your fertile mind.
           </p>
           <Link
             className={cn(button, buttonDark, "mt-[1.4rem]")}
@@ -77,8 +80,7 @@ export default function TalksPage() {
           .
           <Image
             className="
-               !left-[40%] !h-full !w-[120%] max-w-none !-translate-x-1/2 object-cover
-               max-md:!left-[75%] max-md:!w-[120%]
+               !left-[40%] !h-full !w-[100%] max-w-none !-translate-x-1/2 object-cover
                max-[560px]:!left-[60%] max-[560px]:!w-[140%]
              "
             src="/images/robert/speaking-open.png"

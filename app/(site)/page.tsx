@@ -35,6 +35,29 @@ const toneClasses: Record<Workshop["tone"], string> = {
   cream: "bg-paper",
 };
 
+const sessionPartners = [
+  { name: "4A's Philippines", mark: "text-lime text-[1.8rem] font-mono" },
+  { name: "ABS-CBN", mark: "text-blue text-[2rem] tracking-[-0.06em]" },
+  { name: "Ateneo de Manila", mark: "text-canvas text-[1.35rem]" },
+  { name: "Couples For Christ", mark: "text-gold text-[1.25rem]" },
+  { name: "Jollibee", mark: "text-coral text-[2rem]" },
+  { name: "EPCALM", mark: "text-blue text-[1.6rem] tracking-[0.08em]" },
+  { name: "McDonald's", mark: "text-gold text-[1.8rem]" },
+  { name: "Mang Inasal", mark: "text-lime text-[1.55rem]" },
+  { name: "Manila Water", mark: "text-blue text-[1.45rem]" },
+  { name: "Megawide", mark: "text-coral text-[1.65rem] uppercase" },
+  { name: "Nestle Philippines", mark: "text-canvas text-[1.35rem]" },
+  { name: "Polytechnic University", mark: "text-gold text-[1.2rem]" },
+  { name: "PR Society Philippines", mark: "text-rose text-[1.35rem]" },
+  { name: "Prulife UK", mark: "text-coral text-[1.65rem]" },
+  { name: "Rotary Club", mark: "text-gold text-[1.45rem] uppercase" },
+  { name: "SM Malls", mark: "text-blue text-[2rem]" },
+  { name: "Stratworks", mark: "text-lime text-[1.5rem]" },
+  { name: "Universal Robina", mark: "text-canvas text-[1.4rem]" },
+  { name: "University of Santo Tomas", mark: "text-gold text-[1.15rem]" },
+  { name: "University of the Philippines", mark: "text-rose text-[1.2rem]" },
+];
+
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
@@ -152,15 +175,25 @@ export default async function Home() {
               </h2>
             </div>
             <div className="pt-4 text-[1.05rem] max-[820px]:row-start-3 max-[820px]:pt-0">
-              <p className="mb-6">
-                Robert Labayen has built a life around ideas: shaping brands,
-                leading creative people, writing songs, making art, and helping
-                audiences see familiar problems with fresh eyes.
+              <p className="mb-4">
+                Robert is a Renaissance Man. He is a writer, painter, speaker,
+                musician, magician, and mentalist. His various interests are the
+                reasons why his talks are englightening and inspiring.
               </p>
-              <p className="mb-6">
-                His sessions bring that range into the room. They are
-                thoughtful, practical, warm, and made for people who want their
-                work to mean more.
+              <p className="mb-4">
+                Robert worked in advertising and then in broadcast media. He
+                wrote viral songs like Star ng Pasko, now the “national anthem”
+                for Filipino Christmases; and Piliin Mo Ang Pilipinas, now our
+                “national anthem” for festivals.
+              </p>
+              <p className="mb-4">
+                The Creative Guild of the Phillipines and the 4A’s gave Robert a
+                Lifetime Achievement Award. His team at ABS-CBN also earned two
+                Hall of Fame honors from the Catholic Mass Media Awards.
+              </p>
+              <p className="mb-4">
+                With so many laurels on his head, Robert believes his life of
+                learning has just begun.
               </p>
               <Link className={cn(textLink, "mt-2")} href="/about">
                 Meet Robert <span className={textLinkPlus}>+</span>
@@ -178,7 +211,7 @@ export default async function Home() {
             <p className={eyebrow}>Signature talks + workshops</p>
 
             <h2 className="mx-auto m-0 max-w-max">
-              Six ways to move a room forward.
+              Seven ways to move a room forward.
             </h2>
           </div>
 
@@ -217,6 +250,53 @@ export default async function Home() {
               </span>
             </Link>
           ))}
+        </div>
+      </section>
+
+      {/* Partners Section */}
+      <section
+        className="overflow-hidden bg-[#0e1215] py-[clamp(3.5rem,4vw,4rem)] text-canvas"
+        id="partners"
+      >
+        <div className={shell}>
+          <div className="text-center">
+            <p className={cn(eyebrow, "text-canvas/55")}>
+              20+ organizations&nbsp;&nbsp;•&nbsp;&nbsp;talks + workshops
+            </p>
+            <h2 className="mx-auto mb-0 max-w-none text-[clamp(3rem,5.4vw,5.5rem)] leading-[0.9] tracking-[-0.065em] max-[820px]:max-w-[11ch]">
+              Good ideas have good company.
+            </h2>
+          </div>
+
+          <div className="mx-auto mt-[clamp(2.5rem,4vw,3.5rem)] grid max-w-[74rem] grid-cols-5 gap-x-[clamp(1rem,3vw,3.5rem)] gap-y-[clamp(1.25rem,2vw,2rem)] max-[820px]:grid-cols-3 max-[560px]:grid-cols-2">
+            {sessionPartners.map((partner) => (
+              <div
+                aria-label={`${partner.name} logo placeholder`}
+                className="flex min-h-[4rem] items-center justify-center p-2 text-center opacity-80 transition duration-300 hover:scale-105 hover:opacity-100 max-[560px]:min-h-[3.75rem]"
+                key={partner.name}
+                role="img"
+              >
+                <span
+                  aria-hidden="true"
+                  className={cn(
+                    "font-display font-semibold leading-[0.95] tracking-[-0.045em] max-[560px]:!text-[1.05rem]",
+                    partner.mark,
+                  )}
+                >
+                  {partner.name}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-[clamp(2.5rem,4vw,3.5rem)] text-center">
+            <Link
+              className="inline-flex border-b border-lime/60 pb-2 font-mono text-[0.68rem] font-bold uppercase tracking-[0.18em] text-lime transition-colors hover:border-canvas hover:text-canvas"
+              href="/contact"
+            >
+              Bring your team into the room
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -273,56 +353,56 @@ export default async function Home() {
 
       {journalPosts.length > 0 && (
         <section className={cn(sectionPad, "bg-forest text-canvas")}>
-        <div
-          className={cn(
-            shell,
-            "mb-[clamp(3rem,7vw,7rem)] flex items-end justify-between gap-12 max-[820px]:flex-col max-[820px]:items-start",
-          )}
-        >
-          <div>
-            <p className={eyebrow}>From Robert&apos;s journal</p>
-            <h2 className="m-0 max-w-[12ch]">
-              Notes on ideas, people, and making things matter.
-            </h2>
+          <div
+            className={cn(
+              shell,
+              "mb-[clamp(3rem,7vw,7rem)] flex items-end justify-between gap-12 max-[820px]:flex-col max-[820px]:items-start",
+            )}
+          >
+            <div>
+              <p className={eyebrow}>From Robert&apos;s journal</p>
+              <h2 className="m-0 max-w-[12ch]">
+                Notes on ideas, people, and making things matter.
+              </h2>
+            </div>
+            <Link className={textLink} href="/journal">
+              Read the journal <span className={textLinkPlus}>+</span>
+            </Link>
           </div>
-          <Link className={textLink} href="/journal">
-            Read the journal <span className={textLinkPlus}>+</span>
-          </Link>
-        </div>
 
-        <div
-          className={cn(
-            shell,
-            "grid grid-cols-3 gap-px max-[820px]:grid-cols-1",
-          )}
-        >
-          {journalPosts.map((post, index) => (
-            <article
-              className={cn(
-                "flex min-h-[31rem] flex-col p-[clamp(1.6rem,3vw,3rem)] max-[820px]:min-h-[27rem]",
-                index === 0 && "bg-soft-forest",
-                index === 1 && "bg-[#2f6557]",
-                index === 2 && "bg-[#214b40]",
-              )}
-              key={post.slug}
-            >
-              <div className={journalMeta}>
-                <span>{post.category}</span>
-                <span>{formatJournalDate(post.publishedAt)}</span>
-              </div>
-              <h3 className="mb-[1.4rem] mt-20 text-[clamp(2rem,3.2vw,3.7rem)]">
-                <Link href={`/journal/${post.slug}`}>{post.title}</Link>
-              </h3>
-              <p className="text-[0.9rem] text-white/75">{post.excerpt}</p>
-              <Link
-                className={cn(textLink, "mt-auto")}
-                href={`/journal/${post.slug}`}
+          <div
+            className={cn(
+              shell,
+              "grid grid-cols-3 gap-px max-[820px]:grid-cols-1",
+            )}
+          >
+            {journalPosts.map((post, index) => (
+              <article
+                className={cn(
+                  "flex min-h-[31rem] flex-col p-[clamp(1.6rem,3vw,3rem)] max-[820px]:min-h-[27rem]",
+                  index === 0 && "bg-soft-forest",
+                  index === 1 && "bg-[#2f6557]",
+                  index === 2 && "bg-[#214b40]",
+                )}
+                key={post.slug}
               >
-                Read note +
-              </Link>
-            </article>
-          ))}
-        </div>
+                <div className={journalMeta}>
+                  <span>{post.category}</span>
+                  <span>{formatJournalDate(post.publishedAt)}</span>
+                </div>
+                <h3 className="mb-[1.4rem] mt-20 text-[clamp(2rem,3.2vw,3.7rem)]">
+                  <Link href={`/journal/${post.slug}`}>{post.title}</Link>
+                </h3>
+                <p className="text-[0.9rem] text-white/75">{post.excerpt}</p>
+                <Link
+                  className={cn(textLink, "mt-auto")}
+                  href={`/journal/${post.slug}`}
+                >
+                  Read note +
+                </Link>
+              </article>
+            ))}
+          </div>
         </section>
       )}
 
