@@ -84,8 +84,8 @@ export default async function Home() {
           </h1>
 
           <p className="max-w-[38rem] text-[clamp(1rem,1.4vw,1.24rem)] leading-[1.55] max-[560px]:text-[0.96rem]">
-            Talks and workshops that help people think braver, lead with
-            meaning, and communicate so good ideas can move.
+            Talks and workshops that inspire leaders to think braver, lead with
+            meaning, communicate and get great things done.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-[1.6rem]">

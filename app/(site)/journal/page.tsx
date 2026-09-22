@@ -55,7 +55,7 @@ export default async function JournalPage() {
         <div>
           <p className={eyebrow}>Robert&apos;s journal</p>
           <h1 className="m-0 max-w-[11ch] text-[clamp(4rem,8vw,9rem)] leading-[0.88] tracking-[-0.075em]">
-            Notes from a life spent making and noticing.
+            Notes from a life spent learning, creating and learning again.
           </h1>
         </div>
         <p className="m-0 max-[820px]:max-w-[32rem]">

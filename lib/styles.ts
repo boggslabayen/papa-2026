@@ -17,7 +17,7 @@ export const button =
 
 export const buttonSmall = "min-h-[44px] px-[1.25rem] py-[0.7rem]";
 
-export const buttonDark = "bg-ink text-canvas hover:border-coral hover:bg-coral";
+export const buttonDark = "bg-coral text-canvas hover:border-coral hover:bg-coral";
 
 export const buttonLight = "border-canvas bg-canvas text-ink hover:border-lime hover:bg-lime";
 

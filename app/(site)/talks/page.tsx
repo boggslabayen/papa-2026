@@ -46,14 +46,16 @@ export default function TalksPage() {
         <div className={cn(riseIn, "relative z-10")}>
           <p className={eyebrow}>Talks + workshops</p>
           <h1 className="mb-[2.3rem] max-w-[9ch] leading-[0.83] tracking-[-0.08em] max-[1100px]:text-[clamp(4rem,8vw,7rem)] max-md:text-[clamp(4.2rem,16vw,7rem)] max-[560px]:text-[clamp(3.9rem,18vw,5.5rem)]">
-            The tree is in the seed.
+            Make room for <em className="not-italic text-coral">better</em>{" "}
+            ideas.
           </h1>
           <p className="max-w-[39rem] text-[clamp(1rem,1.4vw,1.25rem)]">
-            Many people have great potential. They need a teacher, colleague, or
-            peer to join them in a journey if discovery.
+            The tree is in the seed. Many people have great potential. They need
+            a teacher, colleague, or peer to join them in a journey of
+            discovery.
             <br />
             <br />
-            The talks and workshops or Robert Labayen are fun, collaborative
+            The talks and workshops of Robert Labayen are fun, collaborative
             ways to help bring out fresh ideas from your fertile mind.
           </p>
           <Link

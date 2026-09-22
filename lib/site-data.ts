@@ -54,7 +54,7 @@ export const workshops: Workshop[] = [
     subtitle: "The culture of cohesion and inspiration",
     summary:
       "A workshop about the habits, language, and shared standards that turn a collection of talented people into one team.",
-    audience: "Cross-functional teams, departments, and organizations in transition",
+    audience: "Cross-functional teams, department managers, and organizations in transition",
     outcomes: ["Shared ownership", "Better collaboration", "Healthier team culture"],
     format: "Talk, team session, or extended culture workshop",
     tone: "blue",
