@@ -30,7 +30,15 @@ const categoryColors: Record<string, string> = {
   Other: "bg-rose",
 };
 
-function ArticleImage({ post, className }: { post: JournalEntry; className?: string }) {
+function ArticleImage({
+  post,
+  className,
+  featured = false,
+}: {
+  post: JournalEntry;
+  className?: string;
+  featured?: boolean;
+}) {
   if (!post.imageUrl) {
     return (
       <div
@@ -52,7 +60,10 @@ function ArticleImage({ post, className }: { post: JournalEntry; className?: str
       width={1100}
       height={720}
       className={cn("h-full w-full object-cover", className)}
-      sizes="(max-width: 820px) 100vw, (max-width: 1200px) 50vw, 33vw"
+      priority={featured}
+      sizes={featured
+        ? "(max-width: 820px) 92vw, (max-width: 1500px) 46vw, 678px"
+        : "(max-width: 820px) 100vw, (max-width: 1200px) 50vw, 33vw"}
     />
   );
 }
@@ -88,13 +99,13 @@ export default function JournalExplorer({
   return (
     <>
       {featuredPost && (
-        <section className="mx-auto w-full max-w-[1500px] px-[clamp(1.25rem,4vw,4.5rem)] max-[560px]:px-[1.15rem]">
+        <section aria-label="Featured journal articles" className="mx-auto w-full max-w-[1500px] px-[clamp(1.25rem,4vw,4.5rem)] max-[560px]:px-[1.15rem]">
           <div className="overflow-hidden rounded-[2rem] bg-forest text-canvas">
-            <div className="grid min-h-[36rem] grid-cols-2 max-[820px]:grid-cols-1">
-              <div className="relative min-h-[24rem] overflow-hidden max-[820px]:order-2 max-[560px]:min-h-[18rem]">
-                <ArticleImage post={featuredPost} />
+            <div className="grid min-h-[28rem] grid-cols-2 max-[820px]:min-h-0 max-[820px]:grid-cols-1">
+              <div className="relative min-w-0 overflow-hidden max-[820px]:aspect-[16/9]">
+                <ArticleImage post={featuredPost} className="absolute inset-0" featured />
               </div>
-              <article className="flex flex-col justify-between p-[clamp(2rem,5vw,5rem)]">
+              <article className="flex min-w-0 flex-col justify-between p-[clamp(1.25rem,3vw,3rem)]">
                 <div>
                   <div className="flex items-center justify-between gap-4">
                     <span className={monoLabel}>Featured note</span>
@@ -102,16 +113,16 @@ export default function JournalExplorer({
                       {String(featuredIndex + 1).padStart(2, "0")} / {String(featuredPosts.length).padStart(2, "0")}
                     </span>
                   </div>
-                  <div className={cn(journalMeta, "mt-16 justify-start text-canvas/70 max-[820px]:mt-10")}>
+                  <div className={cn(journalMeta, "mt-6 justify-start text-canvas/70")}>
                     <span>{featuredPost.category}</span>
                     <span>{featuredPost.date}</span>
                   </div>
-                  <h2 className="mb-6 mt-5 max-w-[12ch] text-[clamp(2.8rem,5vw,5.8rem)] leading-[0.92]">
+                  <h2 className="mb-4 mt-4 max-w-[22ch] text-[clamp(1.75rem,3vw,3rem)] leading-[1.03] [overflow-wrap:anywhere]">
                     {featuredPost.title}
                   </h2>
-                  <p className="max-w-[35rem] text-canvas/80">{featuredPost.excerpt}</p>
+                  <p className="m-0 max-w-[35rem] text-[0.95rem] leading-[1.5] text-canvas/80">{featuredPost.excerpt}</p>
                 </div>
-                <div className="mt-10 flex flex-wrap items-center justify-between gap-6">
+                <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
                   <Link className={cn(button, buttonDark, "border-canvas bg-canvas text-ink hover:bg-lime")} href={`/journal/${featuredPost.slug}`}>
                     Read the note
                   </Link>
@@ -172,7 +183,6 @@ export default function JournalExplorer({
                 <span className={cn(monoLabel, "text-[0.65rem]")}>{String(index + 1).padStart(2, "0")}</span>
                 <div>
                   <div className={cn(journalMeta, "justify-start")}>
-                    <span>{post.category}</span>
                     <span>{post.date}</span>
                   </div>
                   <h2 className="mb-0 mt-3 text-[clamp(1.8rem,3vw,3.4rem)]">
@@ -196,11 +206,10 @@ export default function JournalExplorer({
                   </div>
                   <div className="p-6">
                     <div className={cn(journalMeta, "justify-start")}>
-                      <span>{post.category}</span>
                       <span>{post.date}</span>
                     </div>
-                    <h2 className="mb-3 mt-4 text-[clamp(2rem,3vw,3.4rem)]">{post.title}</h2>
-                    <p className="m-0 text-sm text-muted">{post.excerpt}</p>
+                    <h2 className="mb-3 mt-4 line-clamp-3 h-[3.3em] text-[clamp(1.4rem,2vw,2rem)] leading-[1.1] [overflow-wrap:anywhere]">{post.title}</h2>
+                    <p className="m-0 line-clamp-3 text-sm text-muted">{post.excerpt}</p>
                     <span className={cn(textLink, "mt-6")}>Read +</span>
                   </div>
                 </Link>

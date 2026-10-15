@@ -7,7 +7,7 @@ import {
   formatJournalDate,
   getPublishedJournalArticles,
 } from "@/lib/journal";
-import { cn, eyebrow, shell } from "@/lib/styles";
+import { cn, shell } from "@/lib/styles";
 
 export const metadata: Metadata = {
   title: "Journal",
@@ -49,18 +49,14 @@ export default async function JournalPage() {
       <section
         className={cn(
           shell,
-          "grid grid-cols-[1fr_0.4fr] items-end gap-20 py-[clamp(5rem,9vw,9rem)] max-[820px]:grid-cols-1 max-[820px]:items-start max-[820px]:gap-8",
+          "flex items-center justify-between gap-8 py-[clamp(1.5rem,3vw,2.5rem)] max-md:flex-col max-md:items-start max-md:gap-2",
         )}
       >
-        <div>
-          <p className={eyebrow}>Robert&apos;s journal</p>
-          <h1 className="m-0 max-w-[11ch] text-[clamp(4rem,8vw,9rem)] leading-[0.88] tracking-[-0.075em]">
-            Notes from a life spent learning, creating and learning again.
-          </h1>
-        </div>
-        <p className="m-0 max-[820px]:max-w-[32rem]">
-          Weekly reflections on creativity, leadership, communication, art, and the
-          small human truths that make ideas worth sharing.
+        <h1 className="m-0 shrink-0 text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.1] tracking-[-0.045em]">
+          Robert&apos;s journal
+        </h1>
+        <p className="m-0 max-w-[32rem] text-sm leading-[1.5] text-muted">
+          Notes from a life spent learning, creating and learning again.
         </p>
       </section>
 

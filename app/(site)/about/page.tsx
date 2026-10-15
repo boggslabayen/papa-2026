@@ -6,7 +6,6 @@ import {
   buttonDark,
   cn,
   eyebrow,
-  imageCaption,
   imageStage,
   riseIn,
   sectionPad,
@@ -45,11 +44,11 @@ export default function AboutPage() {
       <section
         className={cn(
           shell,
-          "grid min-h-[calc(100svh-var(--header-height))] grid-cols-[minmax(0,1.05fr)_minmax(24rem,0.85fr)] items-center gap-[clamp(3rem,7vw,8rem)] py-[clamp(4rem,7vw,7rem)] max-[820px]:min-h-0 max-[820px]:grid-cols-1",
+          "relative isolate grid min-h-[calc(100svh-var(--header-height))] grid-cols-[minmax(0,1.06fr)_minmax(22rem,0.94fr)] items-center gap-[clamp(2rem,5vw,6rem)] overflow-hidden py-[clamp(3rem,6vw,6rem)] max-[1100px]:grid-cols-[1fr_0.8fr] max-md:grid-cols-1 max-md:pt-16",
         )}
       >
         <div className={cn(riseIn, "relative z-10")}>
-          <p className={eyebrow}>About Robert</p>
+          <p className={cn(eyebrow, "max-md:mt-40")}>About Robert</p>
           <h1 className="mb-[2.3rem] max-w-[9ch] leading-[0.83] tracking-[-0.08em] max-[1100px]:text-[clamp(4rem,8vw,7rem)] max-md:text-[clamp(4.2rem,16vw,7rem)] max-[560px]:text-[clamp(3.9rem,18vw,5.5rem)]">
             Creativity is a way of paying attention.
           </h1>
@@ -62,9 +61,9 @@ export default function AboutPage() {
         <div
           className={cn(
             riseIn,
-            "relative isolate max-h-[38rem] self-stretch [animation-delay:120ms]",
-            "before:absolute before:left-[-4rem] before:top-[8%] before:-z-10 before:size-[35rem] before:rounded-full before:bg-rose-200 before:content-['']",
-            "after:absolute after:inset-0 after:-z-10  after:bg-[length:12px_12px] after:opacity-40 after:content-['']",
+            "relative isolate max-h-[38rem] self-stretch rounded-[10%_50%_8rem_8rem] bg-rose-200 [animation-delay:120ms]",
+            "before:absolute before:left-[-4rem] before:top-[28%] before:-z-10 before:size-[20rem] before:rounded-full before:bg-violet-200 before:content-['']",
+            "after:absolute after:inset-0 after:-z-10 after:bg-[radial-gradient(rgba(19,36,29,0.25)_1px,transparent_1px)] after:bg-[length:12px_12px] after:opacity-40 after:content-['']",
 
             // md and below
             "max-md:absolute max-md:inset-0 max-md:z-0 max-md:min-h-0 max-md:rounded-none",
@@ -73,7 +72,7 @@ export default function AboutPage() {
           )}
         >
           <span className="absolute right-[8rem] top-16 z-0 size-48 rounded-full bg-violet-200" />
-          .
+          <span className="absolute right-24 top-[8.7rem] z-[1] size-[2.6rem] rounded-full border border-ink/35" />
           <Image
             className="
                        !left-[40%] !h-full !w-[120%] max-w-none !-translate-x-1/2 object-cover
@@ -81,7 +80,7 @@ export default function AboutPage() {
                        max-[560px]:!left-[60%] max-[560px]:!w-[140%]
                      "
             src="/images/robert/portrait-white.png"
-            alt="Robert Labayen in a rose blazer, looking ahead"
+            alt="Robert Labayen in a light blazer, looking ahead"
             fill
             priority
             sizes="100vw"
@@ -128,17 +127,17 @@ export default function AboutPage() {
               </h2>
             </div>
           </div>
-          <div className="grid grid-cols-4 border-l border-canvas/25 max-[1100px]:grid-cols-2 max-[560px]:grid-cols-1">
+          <div className="grid grid-cols-4 border-l border-canvas/25 max-[1100px]:grid-cols-2">
             {roles.map(([title, copy], index) => (
               <article
-                className="min-h-[25rem] border-b border-r border-t border-canvas/25 p-[clamp(1.5rem,3vw,3rem)] max-[560px]:min-h-[21rem]"
+                className="@container min-h-[25rem] min-w-0 border-b border-r border-t border-canvas/25 p-[clamp(1.5rem,3vw,3rem)] max-[769px]:min-h-0 max-[769px]:p-[clamp(0.75rem,2vw,1rem)]"
                 key={title}
               >
                 <span className="font-mono text-[0.64rem]">0{index + 1}</span>
-                <h3 className="mb-6 mt-28 text-[clamp(2rem,3vw,3.4rem)]">
+                <h3 className="mb-6 mt-28 text-[clamp(2rem,3vw,3.4rem)] max-[769px]:mb-3 max-[769px]:mt-3 max-[769px]:text-[clamp(1.125rem,14cqw,1.75rem)] max-[769px]:leading-[1.05] max-[769px]:[overflow-wrap:anywhere]">
                   {title}
                 </h3>
-                <p className="text-[0.88rem] text-white/70">{copy}</p>
+                <p className="text-[0.88rem] text-white/70 max-[769px]:m-0 max-[769px]:text-xs max-[769px]:leading-[1.4]">{copy}</p>
               </article>
             ))}
           </div>

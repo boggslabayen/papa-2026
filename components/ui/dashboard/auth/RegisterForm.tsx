@@ -58,8 +58,11 @@ export default function RegisterForm() {
   return (
     <form onSubmit={handleRegister} className="space-y-4 max-w-sm w-full">
       <div>
-        <label className="block text-sm font-medium mb-1">First Name</label>
+        <label htmlFor="register-first-name" className="block text-sm font-medium mb-1">
+          First Name
+        </label>
         <input
+          id="register-first-name"
           type="text"
           className="border rounded-lg p-2 w-full"
           value={firstName}
@@ -69,8 +72,11 @@ export default function RegisterForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium mb-1">Last Name</label>
+        <label htmlFor="register-last-name" className="block text-sm font-medium mb-1">
+          Last Name
+        </label>
         <input
+          id="register-last-name"
           type="text"
           className="border rounded-lg p-2 w-full"
           value={lastName}
@@ -80,8 +86,11 @@ export default function RegisterForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium mb-1">Email Address</label>
+        <label htmlFor="register-email" className="block text-sm font-medium mb-1">
+          Email Address
+        </label>
         <input
+          id="register-email"
           type="email"
           className="border rounded-lg p-2 w-full"
           value={email}
@@ -91,8 +100,11 @@ export default function RegisterForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium mb-1">Password</label>
+        <label htmlFor="register-password" className="block text-sm font-medium mb-1">
+          Password
+        </label>
         <input
+          id="register-password"
           type="password"
           className="border rounded-lg p-2 w-full"
           value={password}

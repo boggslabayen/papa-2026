@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { PaintingDivider } from "@/components/ui/site/painting-divider";
 import { workshops, type Workshop } from "@/lib/site-data";
 import { formatJournalDate, getPublishedJournalArticles } from "@/lib/journal";
 import {
@@ -33,6 +34,8 @@ const toneClasses: Record<Workshop["tone"], string> = {
   blue: "bg-blue",
   rose: "bg-rose",
   cream: "bg-paper",
+  lavender: "bg-[#b9a3d8]",
+  peach: "bg-[#f2b58d]",
 };
 
 const sessionPartners = [
@@ -149,7 +152,7 @@ export default async function Home() {
       </section>
 
       {/* About Section */}
-      <section className={cn(shell, sectionPad)}>
+      <section className={cn(shell, "pt-[clamp(6rem,12vw,12rem)]")}>
         <div className="grid grid-cols-2 items-start gap-[clamp(3rem,7vw,8rem)] max-[820px]:grid-cols-1">
           <div
             className={cn(
@@ -205,13 +208,15 @@ export default async function Home() {
 
       {/* Sessions Section */}
 
-      <section className={cn(sectionPad, "bg-canvas")}>
+      <section className="bg-canvas">
+        <PaintingDivider className="mb-[clamp(3rem,6vw,6rem)]" />
+
         <div className={cn(shell, "mb-[clamp(3rem,7vw,7rem)] text-center")}>
           <div>
             <p className={eyebrow}>Signature talks + workshops</p>
 
             <h2 className="mx-auto m-0 max-w-max">
-              Seven ways to move a room forward.
+              Eight ways to move a room forward.
             </h2>
           </div>
 
@@ -224,13 +229,13 @@ export default async function Home() {
         <div
           className={cn(
             shell,
-            "grid grid-cols-3 max-[1100px]:grid-cols-2 max-[560px]:grid-cols-1",
+            "grid grid-cols-4 max-[819px]:grid-cols-2",
           )}
         >
           {workshops.map((workshop) => (
             <Link
               className={cn(
-                "group relative -ml-px -mt-px flex aspect-square min-h-[21rem] flex-col justify-between overflow-hidden border-[#fafafa] p-[clamp(1.5rem,2.7vw,2.8rem)] transition duration-300 hover:z-[2] hover:-translate-y-2 hover:rounded-tl-[8rem] max-[560px]:aspect-auto max-[560px]:min-h-[22rem]",
+                "group @container flex min-h-[21rem] min-w-0 flex-col gap-6 p-[clamp(1.25rem,1.8vw,2rem)] transition-[filter] duration-300 hover:brightness-95 max-[819px]:min-h-0 max-[819px]:gap-3 max-[819px]:p-[clamp(0.75rem,2vw,1rem)]",
                 toneClasses[workshop.tone],
               )}
               href={`/talks#${workshop.slug}`}
@@ -239,18 +244,19 @@ export default async function Home() {
               <span className={cn(monoLabel, "text-[0.65rem]")}>
                 {workshop.number}
               </span>
-              <div>
-                <h3 className="mb-4  text-[clamp(2.1rem,3.4vw,3.8rem)]">
+              <div className="mt-auto min-w-0 [overflow-wrap:anywhere] max-[819px]:mt-0">
+                <h3 className="mb-4 text-[clamp(1.6rem,12cqw,2.8rem)] leading-[1.05] max-[819px]:mb-3 max-[819px]:text-[clamp(1.125rem,14cqw,1.75rem)]">
                   {workshop.title}
                 </h3>
-                <p className="m-0  text-[0.86rem]">{workshop.subtitle}</p>
+                <p className="m-0 text-[0.86rem] max-[819px]:text-xs max-[819px]:leading-[1.4]">{workshop.subtitle}</p>
               </div>
-              <span className="absolute bottom-6 right-6 flex size-10 items-center justify-center rounded-full border border-current font-display text-[1.4rem] transition-transform duration-200 group-hover:rotate-90">
-                +
+              <span className="inline-flex min-h-10 max-w-full shrink-0 items-center justify-center self-end rounded-full border border-current px-3 py-2 text-center text-xs font-semibold leading-tight transition-colors duration-200 group-hover:bg-ink group-hover:text-canvas max-[819px]:mt-auto max-[819px]:min-h-9 max-[819px]:self-start max-[819px]:px-2.5 max-[819px]:py-1.5 max-[819px]:text-[0.6875rem]">
+                View session
               </span>
             </Link>
           ))}
         </div>
+        <PaintingDivider className="mt-[clamp(3rem,6vw,6rem)]" />
       </section>
 
       {/* Partners Section */}

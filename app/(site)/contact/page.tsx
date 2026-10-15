@@ -4,11 +4,9 @@ import { BookingForm } from "@/components/ui/site/booking-form";
 import {
   cn,
   eyebrow,
-  imageStage,
   riseIn,
   sectionPad,
   shell,
-  stageImage,
 } from "@/lib/styles";
 
 export const metadata: Metadata = {
@@ -23,7 +21,7 @@ export default function ContactPage() {
       <section
         className={cn(
           shell,
-          "grid min-h-[calc(100svh-var(--header-height))] grid-cols-[1.06fr_0.8fr] items-center gap-[clamp(3rem,7vw,8rem)] py-[clamp(4rem,7vw,7rem)] max-[820px]:min-h-0 max-[820px]:grid-cols-1",
+          "relative isolate grid min-h-[calc(100svh-var(--header-height))] grid-cols-[1.06fr_0.8fr] items-center gap-[clamp(3rem,7vw,8rem)] overflow-hidden py-[clamp(4rem,7vw,7rem)] max-[820px]:min-h-0 max-[820px]:grid-cols-1",
         )}
       >
         <div className={cn(riseIn, "relative z-10")}>
@@ -50,7 +48,6 @@ export default function ContactPage() {
           )}
         >
           <span className="absolute right-[8rem] top-16 z-0 size-48 rounded-full bg-violet-200" />
-          .
           <Image
             className="
                     !left-[40%] !h-full !w-[120%] max-w-sm md:max-w-lg !-translate-x-1/2 object-cover

@@ -14,6 +14,7 @@ import { uploadImage } from "@/lib/firebase/uploadImage";
 const MAX_EDITOR_IMAGE_SIZE = 3 * 1024 * 1024;
 
 interface RichTextEditorProps {
+  labelledBy?: string;
   value: string;
   onChange: (content: string) => void;
   userId?: string;
@@ -78,6 +79,7 @@ function ToolbarSelect({
 }
 
 export default function RichTextEditor({
+  labelledBy,
   value,
   onChange,
   userId,
@@ -204,6 +206,13 @@ export default function RichTextEditor({
     },
 
     editorProps: {
+      attributes: {
+        role: "textbox",
+        "aria-multiline": "true",
+        ...(labelledBy
+          ? { "aria-labelledby": labelledBy }
+          : { "aria-label": "Article content" }),
+      },
       handlePaste: (_view, event) => {
         const files = getImageFiles(event.clipboardData?.files);
 

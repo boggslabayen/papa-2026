@@ -7,7 +7,7 @@ export type Workshop = {
   audience: string;
   outcomes: string[];
   format: string;
-  tone: "coral" | "lime" | "gold" | "blue" | "rose" | "cream";
+  tone: "coral" | "lime" | "gold" | "blue" | "rose" | "cream" | "lavender" | "peach";
 };
 
 export const workshops: Workshop[] = [
@@ -93,7 +93,19 @@ export const workshops: Workshop[] = [
     audience: "Teams, students, leaders, and curious minds ready to break mental locks",
     outcomes: ["More creative breakthroughs", "Freer thinking", "Sharper problem solving"],
     format: "Keynote, 1-hour talk, or interactive workshop",
-    tone: "rose",
+    tone: "lavender",
+  },
+  {
+    number: "08",
+    slug: "spell-cast",
+    title: "Spellcast",
+    subtitle: "Magician’s Techniques for the Office Theater",
+    summary:
+      "A mind-bending teaching on how to amaze clients and workmates using the principles used by stage magicians.",
+    audience: "Client-facing people, innovation teams, leaders at all levels",
+    outcomes: ["Presentation techniques", "client relations tips", "ideas for planning and innovation"],
+    format: "Keynote, 1 hour talk, 8-hour workshop",
+    tone: "peach",
   },
 ];
 

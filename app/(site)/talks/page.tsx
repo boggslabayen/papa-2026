@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { PaintingDivider } from "@/components/ui/site/painting-divider";
 import { workshops, type Workshop } from "@/lib/site-data";
 import {
   button,
@@ -8,11 +9,9 @@ import {
   buttonLight,
   cn,
   eyebrow,
-  imageCaption,
   imageStage,
   monoLabel,
   riseIn,
-  sectionPad,
   shell,
   stageImage,
   textLink,
@@ -32,6 +31,8 @@ const toneHoverClasses: Record<Workshop["tone"], string> = {
   blue: "hover:bg-blue/25",
   rose: "hover:bg-rose/25",
   cream: "hover:bg-canvas",
+  lavender: "hover:bg-[#b9a3d8]/25",
+  peach: "hover:bg-[#f2b58d]/25",
 };
 
 export default function TalksPage() {
@@ -40,11 +41,11 @@ export default function TalksPage() {
       <section
         className={cn(
           shell,
-          "grid min-h-[calc(100svh-var(--header-height))] grid-cols-[minmax(0,1.05fr)_minmax(24rem,0.85fr)] items-center gap-[clamp(3rem,7vw,8rem)] py-[clamp(4rem,7vw,7rem)] max-[820px]:min-h-0 max-[820px]:grid-cols-1",
+          "relative isolate grid grid-cols-[minmax(0,1.05fr)_minmax(0,0.85fr)] items-center gap-[clamp(3rem,7vw,8rem)] overflow-hidden pt-[clamp(4rem,7vw,7rem)] max-md:grid-cols-1",
         )}
       >
         <div className={cn(riseIn, "relative z-10")}>
-          <p className={eyebrow}>Talks + workshops</p>
+          <p className={cn(eyebrow, "max-md:mt-40")}>Talks + workshops</p>
           <h1 className="mb-[2.3rem] max-w-[9ch] leading-[0.83] tracking-[-0.08em] max-[1100px]:text-[clamp(4rem,8vw,7rem)] max-md:text-[clamp(4.2rem,16vw,7rem)] max-[560px]:text-[clamp(3.9rem,18vw,5.5rem)]">
             Make room for <em className="not-italic text-coral">better</em>{" "}
             ideas.
@@ -70,20 +71,20 @@ export default function TalksPage() {
             riseIn,
             "relative isolate max-h-[38rem] self-stretch [animation-delay:120ms]",
             "before:absolute before:left-[-4rem] before:top-[28%] before:-z-10 before:size-[20rem] before:rounded-full before:bg-amber-500 before:content-['']",
+            "max-md:before:left-4 max-md:before:size-[min(20rem,calc(100%_-_2rem))]",
             "after:absolute after:inset-0 after:-z-10 after:bg-[radial-gradient(rgba(19,36,29,0.25)_1px,transparent_1px)] after:bg-[length:12px_12px] after:opacity-40 after:content-['']",
 
             // md and below
             "max-md:absolute max-md:inset-0 max-md:z-0 max-md:min-h-0 max-md:rounded-none",
-            "max-md:[mask-image:linear-gradient(to_bottom,black_65%,transparent_100%)]",
-            "max-md:[-webkit-mask-image:linear-gradient(to_bottom,black_65%,transparent_100%)]",
           )}
         >
-          <span className="absolute right-[8rem] top-16 z-0 size-48 rounded-full bg-violet-200" />
-          .
+          <span className="absolute right-[8rem] top-16 z-0 size-48 rounded-full bg-violet-200 max-md:right-4" />
           <Image
             className="
                !left-[40%] !h-full !w-[100%] max-w-none !-translate-x-1/2 object-cover
                max-[560px]:!left-[60%] max-[560px]:!w-[140%]
+               [mask-image:linear-gradient(to_bottom,black_65%,transparent_100%)]
+               [-webkit-mask-image:linear-gradient(to_bottom,black_65%,transparent_100%)]
              "
             src="/images/robert/speaking-open.png"
             alt="Robert Labayen in a rose blazer, looking ahead"
@@ -94,7 +95,9 @@ export default function TalksPage() {
         </div>
       </section>
 
-      <section className={cn(shell, sectionPad, "pt-8")}>
+      <PaintingDivider />
+
+      <section className={cn(shell, "py-8")}>
         {workshops.map((workshop) => (
           <article
             className={cn(
@@ -145,6 +148,8 @@ export default function TalksPage() {
           </article>
         ))}
       </section>
+
+      <PaintingDivider className="mb-[clamp(6rem,12vw,12rem)]" />
 
       <section
         className={cn(
