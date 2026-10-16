@@ -47,24 +47,24 @@ export default async function JournalArticlePage({
         <Link
           className={cn(
             monoLabel,
-            "mb-6 inline-flex border-b border-ink pb-[0.3rem] text-[0.62rem] font-extrabold",
+            "mx-auto mb-6 flex w-fit border-b border-ink pb-[0.3rem] text-[0.62rem] font-extrabold",
           )}
           href="/journal"
         >
           Back to journal
         </Link>
-        <div className={cn(journalMeta, "justify-start")}>
+        <div className={cn(journalMeta, "justify-center")}>
           <time dateTime={post.publishedAt?.toISOString()}>
             {formatJournalDate(post.publishedAt)}
           </time>
         </div>
-        <h1 className="mb-0 mt-3 text-[clamp(1rem,8vw,4rem)]">
+        <h1 className="mb-0 mt-3 text-center text-[clamp(1.75rem,7vw,3.5rem)]">
           {post.title}
         </h1>
 
-        <div className="my-6 h-[6px] w-20 bg-coral" />
+        <div className="mx-auto my-6 h-[6px] w-20 bg-coral" />
 
-        <div className="mb-6 ml-auto max-w-[650px]">
+        <div className="mx-auto mb-6 max-w-[650px]">
           {post.imageUrl ? (
             <div className="overflow-hidden rounded-lg bg-slate-100">
               <Image
@@ -84,7 +84,7 @@ export default async function JournalArticlePage({
         </div>
 
         <div
-          className="ml-auto max-w-[650px] text-[clamp(1.08rem,1.6vw,1.28rem)] [&_a]:underline [&_h1]:mb-6 [&_h1]:font-display [&_h1]:text-5xl [&_h2]:mb-5 [&_h2]:mt-12 [&_h2]:font-display [&_h2]:text-4xl [&_h3]:mb-4 [&_h3]:mt-10 [&_h3]:font-display [&_h3]:text-3xl [&_img]:my-10 [&_img]:h-auto [&_img]:w-full [&_img]:rounded-sm [&_li]:mb-2 [&_ol]:mb-8 [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-8 [&_ul]:mb-8 [&_ul]:list-disc [&_ul]:pl-6"
+          className="mx-auto max-w-[650px] text-[clamp(1rem,1.4vw,1.125rem)] [&_a]:underline [&_h1]:mb-6 [&_h1]:font-display [&_h1]:text-5xl [&_h2]:mb-5 [&_h2]:mt-12 [&_h2]:font-display [&_h2]:text-4xl [&_h3]:mb-4 [&_h3]:mt-10 [&_h3]:font-display [&_h3]:text-3xl [&_img]:my-10 [&_img]:h-auto [&_img]:w-full [&_img]:rounded-sm [&_li]:mb-2 [&_ol]:mb-8 [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-8 [&_ul]:mb-8 [&_ul]:list-disc [&_ul]:pl-6"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
         <div className="mt-24 flex items-center justify-between border-t border-ink/20 pt-8 max-[560px]:flex-col max-[560px]:items-start">
