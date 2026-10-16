@@ -24,7 +24,9 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://robertlabayen.com"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://papa-2026.vercel.app",
+  ),
   title: {
     default: "Robert Labayen | Creative Leader, Artist & Speaker",
     template: "%s | Robert Labayen",
