@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import ideaDicePortrait from "@/public/images/robert/idea-dice-wide.png";
 import { PaintingDivider } from "@/components/ui/site/painting-divider";
 import { workshops, type Workshop } from "@/lib/site-data";
 import {
@@ -165,7 +166,7 @@ export default function TalksPage() {
         >
           <Image
             className={stageImage}
-            src="/images/robert/idea-dice-wide.png"
+            src={ideaDicePortrait}
             alt="Robert Labayen holding a red idea die"
             fill
             sizes="(max-width: 820px) 100vw, 52vw"

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import heroPortrait from "@/public/images/robert/hero.png";
 import { PaintingDivider } from "@/components/ui/site/painting-divider";
 import { workshops, type Workshop } from "@/lib/site-data";
 import { formatJournalDate, getPublishedJournalArticles } from "@/lib/journal";
@@ -126,7 +127,7 @@ export default async function Home() {
         max-md:!left-[75%] max-md:!w-[120%]
         max-[560px]:!left-[60%] max-[560px]:!w-[140%]
       "
-            src="/images/robert/hero.png"
+            src={heroPortrait}
             alt="Robert Labayen in a rose blazer, looking ahead"
             fill
             priority

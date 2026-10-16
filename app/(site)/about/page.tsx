@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import aboutPortrait from "@/public/images/robert/portrait-white.png";
+import composedPortrait from "@/public/images/robert/composed.png";
 import {
   button,
   buttonDark,
@@ -79,7 +81,7 @@ export default function AboutPage() {
                        max-md:!left-[75%] max-md:!w-[120%]
                        max-[560px]:!left-[60%] max-[560px]:!w-[140%]
                      "
-            src="/images/robert/portrait-white.png"
+            src={aboutPortrait}
             alt="Robert Labayen in a light blazer, looking ahead"
             fill
             priority
@@ -172,7 +174,7 @@ export default function AboutPage() {
         >
           <Image
             className={stageImage}
-            src="/images/robert/composed.png"
+            src={composedPortrait}
             alt="Robert Labayen standing thoughtfully"
             fill
             sizes="(max-width: 620px) 100vw, 50vw"
