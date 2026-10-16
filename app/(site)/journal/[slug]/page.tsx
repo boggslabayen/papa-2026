@@ -43,27 +43,28 @@ export default async function JournalArticlePage({
 
   return (
     <main className="bg-canvas">
-      <article className="mx-auto max-w-[940px] px-[clamp(1.25rem,4vw,3rem)] py-[clamp(5rem,10vw,10rem)]">
+      <article className="mx-auto max-w-[940px] px-[clamp(1.25rem,4vw,3rem)] py-[clamp(2rem,4vw,4rem)]">
         <Link
           className={cn(
             monoLabel,
-            "mb-24 inline-flex border-b border-ink pb-[0.3rem] text-[0.62rem] font-extrabold",
+            "mb-6 inline-flex border-b border-ink pb-[0.3rem] text-[0.62rem] font-extrabold",
           )}
           href="/journal"
         >
           Back to journal
         </Link>
         <div className={cn(journalMeta, "justify-start")}>
-          <span>{post.category}</span>
-          <span>{formatJournalDate(post.publishedAt)}</span>
+          <time dateTime={post.publishedAt?.toISOString()}>
+            {formatJournalDate(post.publishedAt)}
+          </time>
         </div>
-        <h1 className="mb-12 mt-10 text-[clamp(1rem,8vw,4rem)]">
+        <h1 className="mb-0 mt-3 text-[clamp(1rem,8vw,4rem)]">
           {post.title}
         </h1>
 
-        <div className="my-20 h-[6px] w-20 bg-coral" />
+        <div className="my-6 h-[6px] w-20 bg-coral" />
 
-        <div className="mb-8">
+        <div className="mb-6 ml-auto max-w-[650px]">
           {post.imageUrl ? (
             <div className="overflow-hidden rounded-lg bg-slate-100">
               <Image
@@ -72,11 +73,11 @@ export default async function JournalArticlePage({
                 width={896}
                 height={500}
                 className="h-auto w-full object-cover"
-                sizes="(min-width: 1024px) 896px, 90vw"
+                sizes="(min-width: 768px) 650px, 90vw"
               />
             </div>
           ) : (
-            <div className="flex h-64 items-center justify-center rounded-lg bg-slate-100 px-6 text-center text-sm font-bold uppercase tracking-[0.2em] text-slate-400 md:h-96">
+            <div className="flex h-48 items-center justify-center rounded-lg bg-slate-100 px-6 text-center text-sm font-bold uppercase tracking-[0.2em] text-slate-400 md:h-64">
               High Wire
             </div>
           )}
